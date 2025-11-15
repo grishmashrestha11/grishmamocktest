@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Henny+Penny&family=Mouse+Memoirs&display=swap");
+
+/* --- 1. FONT & COLOR DEFINITIONS (CSS Variables) --- */
+:root {
+  /* Fonts */
+  --font-1: "Mouse Memoirs", sans-serif; /* For big headings */
+  --font-2: "Henny Penny", cursive; /* For cursive/taglines */
+  --font-3: "Fredoka", sans-serif; /* For body text */
+
+  /* Colors */
+  --color-bg-main: #fffeca; /* Main background yellow */
+  --color-bg-card: #fdfdfd; /* Off-white for cards */
+  --color-dark-brown: #4a3b32; /* Dark brown for text, nav, footer */
+  --color-light-text: #ffffff; /* Light text for dark backgrounds */
+  --color-border: #1c1c1c; /* Border color */
+}
+
+/* --- 2. GLOBAL STYLES --- */
+* {
+  /* This makes layout math easier, including padding in the width/height */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-3); /* Default body font: Fredoka */
+  background-color: #f0f0f0; /* A neutral bg for the page */
+  color: var(--color-dark-brown);
+  line-height: 1.6;
+}
+
+.page-wrapper {
+  width: 90%;
+  max-width: 1400px;
+  margin: 20px auto; /* Centers the page */
+  background-color: var(--color-bg-main); /* Yellow main bg */
+  border: 3px solid var(--color-border);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  /* Makes images responsive and prevents overflow */
+  max-width: 100%;
+  height: auto;
+  display: block; /* Removes bottom spacing */
+}
+
+/* --- 3. HEADER --- */
+.site-header {
+  /* Use Flexbox to align items in a row */
+  display: flex;
+  justify-content: space-between; /* Pushes items apart */
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 3px solid var(--color-border);
+}
+
+.logo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  /* Placeholder style */
+  background-color: #40c4a9;
+}
+
+.site-header h1 {
+  font-family: var(--font-1); /* Mouse Memoirs */
+  font-size: 3.5rem;
+  font-weight: 400;
+}
+
+.tagline {
+  font-family: var(--font-2); /* Henny Penny */
+  font-size: 1.2rem;
+  align-self: flex-end;
+}
+
+/* --- 4. NAVIGATION BAR --- */
+.main-nav {
+  background-color: var(--color-dark-brown); /* Top bar bg */
+  padding: 10px 0;
+  border-bottom: 3px solid var(--color-border);
+}
+
+.main-nav ul {
+  display: flex; /* Aligns buttons in a row */
+  justify-content: center;
+  list-style: none; /* Removes bullet points */
+  gap: 15px; /* Space between buttons */
+}
+
+.nav-button {
+  display: block;
+  background-color: var(--color-dark-brown);
+  color: var(--color-light-text);
+  border: 2px solid var(--color-light-text); /* Light border */
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: var(--font-3);
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Button Hover: Reversed */
+.nav-button:hover {
+  background-color: var(--color-light-text);
+  color: var(--color-dark-brown);
+}
+
+/* --- 5. CONTENT AREA (FLEXBOX) --- */
+.content-area {
+  /* Use Flexbox for the two-column layout (sidebar + main) */
+  display: flex;
+  padding: 30px;
+  gap: 30px;
+}
+
+/* 5a. Sidebar */
+.sidebar {
+  flex-basis: 300px; /* Fixed width */
+  flex-shrink: 0; /* Prevents shrinking */
+  background-color: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  align-self: center;
+}
+
+.sidebar h3 {
+  font-family: var(--font-1);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.sidebar-img {
+  width: 200px;
+  height: 200px;
+  /* border-radius: 10px; */
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  /* Placeholder style */
+  background-color: #eee;
+}
+
+.joke-q {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.joke-a {
+  font-family: var(--font-2);
+  font-size: 1.3rem;
+}
+
+/* 5b. Main Content */
+.main-content {
+  flex-grow: 1; /* Takes up all remaining space */
+}
+
+.subtitle {
+  font-family: var(--font-1);
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+/* 5c. Content Grid (CSS GRID) */
+.content-grid {
+  /* Use CSS Grid for the 2x2 card layout */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  gap: 25px;
+}
+
+.content-box {
+  background-color: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.content-box h3 {
+  font-family: var(--font-1);
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.content-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  margin: 0 auto 15px;
+  /* Placeholder style */
+  background-color: #eee;
+}
+
+.content-box p {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.content-box ul {
+  list-style-position: inside; /* Puts bullets inside the box */
+  padding-left: 10px;
+}
+.content-box li {
+  /* Targets the actual bullet point text */
+  font-size: 0.9rem; /* Smaller than the default 1rem */
+  margin-bottom: 6px; /* Added to space them out slightly */
+}
+/* --- 6. FOOTER --- */
+.site-footer {
+  background-color: var(--color-dark-brown); /* Same as nav */
+  color: var(--color-light-text);
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-top: 3px solid var(--color-border);
+}
+
+.site-footer a {
+  color: var(--color-light-text);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
